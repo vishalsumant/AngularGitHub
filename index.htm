@@ -1,0 +1,50 @@
+﻿<!doctype html>
+<html >
+<head>
+   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+   <script src="Scripts/ngGitApp.js"></script>
+   <meta charset="utf-8">
+   <meta http-equiv="Content-Type" content="text/html">
+   <title>Github API Webapp using AngularJS </title>
+   <link rel="stylesheet" type="text/css"  href="Styles/GitHub.css">
+</head>
+
+<body >
+<form name="myForm" ng-app="GitApp" ng-controller="GitHubCtrl" novalidate>
+<div class="container">
+<header>
+   <h1>Github API using AngularJS</h1>
+</header>
+<div style="float:left;width:30%">
+<nav>
+  <ul>
+    <li><a href="#" ng-click="UserSearch()">Search User</a></li>
+    <li><a href="#" ng-click="ReposSearch()">Repositories</a></li>
+  </ul>
+</nav>
+</div>  
+
+<div style="float:right;width:60%">
+  <div id="divSearch" ng-show="SearchUser">
+  
+  <p>GitHub Username:<br>
+  <input type="text" name="userName" ng-model="userName" required>
+  <span style="color:red" ng-show="myForm.userName.$invalid">
+  <span ng-show="myForm.userName.$error.required">Username is required.</span>
+  </span>
+  </p>
+      
+      <a href="#/UserInfo" id="lnkUserInfo" ng-disabled="!myform.userName.$valid" ng-show="!SearchRepos" ng-click="getGitInfo()">Get User Data</a>
+      <a href="#/Repositories" id="lnkRepos" ng-disabled="!myform.userName.$valid" ng-show="SearchRepos" ng-click="getGitRepos()">Get Repositories</a>
+   </div>
+   </div>
+
+</div>
+<footer></footer>
+
+<div ng-view></div>
+
+</form>
+</body>
+</html>

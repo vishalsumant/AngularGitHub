@@ -1,0 +1,27 @@
+﻿<a href="#">Back</a>
+<div style="text-align:center">
+   <div ng-show="userNotFound">
+      <h2>No User Record!!!</h2>
+   </div>
+   <div ng-show="loaded">
+
+      <h2> {{user.name}}
+         <span class="smallname">(@<a href="{{user.html_url}}" target="_blank"> {{user.login}} </a>)</span>
+      </h2>
+
+      <div class="ghcontent">
+         <div class="avi">
+            <a href="{{ user.html_url }}" target="_blank">
+               <img src="{{ user.avatar_url }}" width="80" height="80" alt="{{ user.login }}"></a>
+         </div>
+         Followers: {{ user.followers }} - Following: {{ user.following }}<br/><br />
+         <!--Repos: {{ user.public_repos }}-->
+       <a href="#/Repositories" id="lnkRepos" ng-click="getGitRepos()">Repos: {{ user.public_repos }}</a>
+      </div>
+
+      
+   </div>
+</div>
+
+
+
